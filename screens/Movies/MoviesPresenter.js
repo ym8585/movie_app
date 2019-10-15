@@ -1,8 +1,8 @@
 import React from "React";
 import PropTypes from "prop-types";
-import Loader from "../../conponents/Loader"
+import Loader from "../../components/Loader"
 import styled from "styled-components";
-import MovieSlider from '../../conponents/MovieSlider';
+import MovieSlider from '../../components/MovieSlider';
 import { BG_COLOR } from '../../constants/Colors';
 
 const Container = styled.ScrollView`
