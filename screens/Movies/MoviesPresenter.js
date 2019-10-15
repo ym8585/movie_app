@@ -7,10 +7,11 @@ import { BG_COLOR } from '../../constants/Colors';
 import Section from "../../components/Section"
 
 const Container = styled.ScrollView`
-    background-color: ${BG_COLOR};
+    background-color: white;
 `;
 
 const MoviesPresenter = ({loading, upcoming, popular, nowPlaying}) => 
+    
     loading ? (
     <Loader />
     ) : (

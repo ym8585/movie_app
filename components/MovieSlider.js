@@ -40,6 +40,6 @@ const MovieSlider = ({ movies }) =>
 
 MovieSlider.Proptypes = {
     movies: Proptypes.array
-}
+};
 
 export default MovieSlider;

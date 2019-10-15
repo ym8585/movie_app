@@ -1,9 +1,9 @@
-import react from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import makePhotoUrl from "../utils/makePhotoUrl";
 import Layout from "../constants/Layout"
-import Movieposter from "./MoviePoster";
+import MoviePoster from "./MoviePoster";
 import { TINT_COLOR, GREY_COLOR } from "../constants/Colors";
 import MovieRating from "./MovieRating";
 
@@ -14,7 +14,7 @@ const Container = styled.View`
 
 const BGImage = styled.Image`
     width:${Layout.width};
-    height: ${Layout.height/3};
+    height: ${Layout.height / 3};
     opacity: 0.3;
     position: absolute;
 `;

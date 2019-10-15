@@ -11,7 +11,7 @@ const Title = styled.Text``;
 const Section = ({title, movies}) => (
     <Container>
         <Title>{title}</Title>
-        <ScrollView>{movies.filter(movie => movie.poster_path !== null).map(movie=> null)}</ScrollView>
+        <ScrollView>{movies.filter(movie => movie.poster_path !== null).map(movie => null)}</ScrollView>
     </Container>
 );
 
