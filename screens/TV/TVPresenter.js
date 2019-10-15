@@ -1,7 +1,7 @@
 import React from "React";
 import {Text} from "react-native";
 import PropTypes from "prop-types";
-import Loader from "../../conponents/Loader";
+import Loader from "../../components/Loader";
 import styled from "styled-components";
 
 const Container = styled.ScrollView``;

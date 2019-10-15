@@ -7,7 +7,7 @@ import MoviesScreen from '../screens/Movies';
 import TVScreen from '../screens/TV';
 import SearchScreen from '../screens/Search';
 import { BG_COLOR } from '../constants/Colors'; 
-import TabBarIcon from '../conponents/TabBarIcon';
+import TabBarIcon from '../components/TabBarIcon';
 import {createStack} from "./config";
 
 
