@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import makePhotoUrl from "../utils/makePhotoUrl";
 import Layout from "../constants/Layout"
-import Movieposter from "./moviePoster";
+import Movieposter from "./MoviePoster";
 import { TINT_COLOR, GREY_COLOR } from "../constants/Colors";
-import movieRating from "./movieRating";
+import MovieRating from "./MovieRating";
 
 const Container = styled.View`
     flex:1;
@@ -94,7 +94,7 @@ const MovieSlide = ({
 
 MovieSlide.PropTypes = {
     id: PropTypes.number.isRequired,
-    poaterPhoto: PropTypes.string.isRequired,
+    posterPhoto: PropTypes.string.isRequired,
     backgroungPhoto: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     voteAvg: PropTypes.number.isRequired,
