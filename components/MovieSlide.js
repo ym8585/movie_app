@@ -15,7 +15,7 @@ const Container = styled.View`
 const BGImage = styled.Image`
     width:${Layout.width};
     height: ${Layout.height / 3};
-    opacity: 0.3;
+    opacity: 0.5;
     position: absolute;
 `;
 
