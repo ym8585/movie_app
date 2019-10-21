@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from "prop-types";
+import { TouchableWithoutFeedback } from "react-native";
+import { withNavigation } from "react-navigation";
 import styled from "styled-components";
 import MoviePoster from './MoviePoster';
 import MovieRating from './MovieRating';
@@ -32,31 +34,47 @@ const OverView = styled.Text`
     font-size : 12px;
 `;
 
-const MovieItem = ({id, posterPhoto, title, voteAvg, horizental=false, overview}) => 
-    horizental ? (
-        <HContainer>
-            <MoviePoster path={posterPhoto}/>
-            <Column>
-                <Title big = {true}>{title}</Title>
-                <MovieRating votes={voteAvg} />
-                {overview ? (
-                    <OverView> 
-                        {overview.length > 150
-                            ? `${overview.substring(0, 120)}...`
-                            : overview}
-                    </OverView>
-                ) : null}
-            </Column>
-            
-        </HContainer> 
-    ):(
-        <Container>
-            <MoviePoster path={posterPhoto}/>
-            <Title>
-                {title.length >15 ? `${title.substring(0,12)}...` : title}
-            </Title>
+const MovieItem = ({
+    id,
+    posterPhoto, 
+    title, 
+    voteAvg, 
+    horizental=false, 
+    overview,
+    isMovie = true,
+    navigation
+}) => (
+    <TouchableWithoutFeedback
+    onPress={() =>
+      navigation.navigate({ routeName: "Detail", params: { isMovie, id } })
+    }
+  >
+    {horizontal ? (
+      <HContainer>
+        <MoviePoster path={posterPhoto} />
+        <Column>
+          <Title big={true}>{title}</Title>
+          <MovieRating votes={voteAvg} />
+          {overview ? (
+            <Overview>
+              {overview.length > 150
+                ? `${overview.substring(0, 147)}...`
+                : overview}
+            </Overview>
+          ) : null}
+        </Column>
+      </HContainer>
+    ) : (
+      <Container>
+        <MoviePoster path={posterPhoto} />
+        <Title>
+          {title.length > 15 ? `${title.substring(0, 12)}...` : title}
+        </Title>
             <MovieRating votes={voteAvg} />
-        </Container>);
+        </Container>
+    )}
+  </TouchableWithoutFeedback>
+);
 
 MovieItem.PropTypes = {
     id: PropTypes.number.isRequired,
@@ -64,7 +82,9 @@ MovieItem.PropTypes = {
     backgroungPhoto: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     voteAvg: PropTypes.number.isRequired,
-    overview: PropTypes.string.isRequired
+    overview: PropTypes.string.isRequired,
+    overview: PropTypes.string,
+    isMovie: PropTypes.bool
 };
 
-export default MovieItem;
+export default withNavigation(MovieItem);
