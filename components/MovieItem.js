@@ -39,7 +39,7 @@ const MovieItem = ({
     posterPhoto, 
     title, 
     voteAvg, 
-    horizental=false, 
+    horizontal = false, 
     overview,
     isMovie = true,
     navigation
@@ -57,7 +57,7 @@ const MovieItem = ({
                   voteAvg,
                   overview
                 }
-              })
+              })        
         }
     >
 
