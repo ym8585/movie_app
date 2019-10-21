@@ -11,6 +11,8 @@ const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
 `;
 
+
+
 const MoviesPresenter = ({loading, upcoming, popular, nowPlaying}) => 
     loading ? (
     <Loader />
@@ -28,6 +30,23 @@ const MoviesPresenter = ({loading, upcoming, popular, nowPlaying}) =>
                         posterPhoto={movie.poster_path}
                         title={movie.title}
                         voteAvg={movie.vote_average}
+                    />
+                ))}
+                </Section>
+            ) : null}
+            {popular ? (
+            <Section horizontal = {false} title="Popular Movies">
+            {popular
+                .filter(movie => movie.poster_path !== null)
+                .map(movie => (
+                    <MovieItem
+                        horizental={true}
+                        key={movie.id}
+                        id={movie.id}
+                        posterPhoto={movie.poster_path}
+                        title={movie.title}
+                        voteAvg={movie.vote_average}
+                        overview={movie.overview}
                     />
                 ))}
                 </Section>
