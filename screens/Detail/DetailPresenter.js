@@ -8,10 +8,10 @@ import MoviePoster  from '../../components/MoviePoster';
 import MovieRating from "../../components/MovieRating";
 import { LinearGradient } from "expo-linear-gradient";
 import { Platform } from 'react-native';
+import Loader from '../../components/Loader';
 
 const Container = styled.ScrollView `
   background-color : ${BG_COLOR};
-  flex: 1;
 `;
 
 const Header = styled.View`
@@ -22,13 +22,11 @@ const Header = styled.View`
 const BgImage = styled.Image`
     width:${Layout.width};
     height: ${Layout.height / 3.5};
-    opacity: 0.5;
     position: absolute;
     top : 0;
 `;
 
 const Content = styled.View`
-    flex: 1;
     flex-direction: row;
     align-items: flex-end;
     padding-horizontal: 20px;
@@ -57,21 +55,35 @@ const ContentTitle = styled.Text`
   margin-bottom : 10px;
 `;
 
-const Overview =styled.Text`
+const ContentValue =styled.Text`
   color: ${TINT_COLOR};
   font-size: 12px;
   margin-bottom: 10px;
   width:90%;
 `;
 
+const DataContainer=styled.View`
+  margin-bottom : 10px;
+`;
+
+const Genres = styled.Text`
+  color: ${TINT_COLOR};
+  font-size: 12px;
+  margin-top: 10px;
+  width: 95%;
+`;
+
 const DetailPresenter = ({
-  id,
   posterPhoto,
   backgroundPhoto,
   title,
   voteAvg,
   overview,
-  loading
+  loading,
+  status,
+  date,
+  isMovie,
+  genres
 }) => (
 <Container>
     <Header>
@@ -93,6 +105,13 @@ const DetailPresenter = ({
               {title}
             </Title>
             <MovieRating inSlide={true} votes={voteAvg}/>
+            {genres ? (
+              <Genres>
+                {genres.map((genre, index) =>
+                  index === genres.length - 1 ? genre.name : `${genre.name} / `
+                )}
+              </Genres>
+            ) : null}
           </Column>
         </Content>
       </LinearGradient>
@@ -100,11 +119,26 @@ const DetailPresenter = ({
 
     <MainContent>
       {overview ? (
-        <>
+        <DataContainer>
           <ContentTitle>OverView</ContentTitle>
-          <Overview>{overview}</Overview>
-        </> 
+          <ContentValue>{overview}</ContentValue>
+        </DataContainer>
        ) : null}
+        {status ? (
+        <DataContainer>
+          <ContentTitle>Status</ContentTitle>
+          <ContentValue>{status}</ContentValue>
+        </DataContainer>
+      ) : null}
+      {date ? (
+        <DataContainer>
+          <ContentTitle>
+            {isMovie ? "Realease Date" : "First Episode"}
+          </ContentTitle>
+          <ContentValue>{date}</ContentValue>
+        </DataContainer>
+      ) : null}
+      {loading ? <Loader /> : null}
     </MainContent>
   </Container>
 );
@@ -116,8 +150,11 @@ DetailPresenter.propTypes = {
   title : PropTypes.string.isRequired,
   voteAvg: PropTypes.number,
   overview: PropTypes.string,
-  overview: PropTypes.string,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
+  isMovie: PropTypes.bool.isRequired,
+  status: PropTypes.string,
+  date: PropTypes.string,
+  genres: PropTypes.array
 
 };
 

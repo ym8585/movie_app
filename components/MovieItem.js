@@ -21,7 +21,6 @@ const Title = styled.Text`
 const HContainer = styled.View`
     margin_bottom : 10px;
     flex-direction : row;
-    align-items : center;
 `;
 
 const Column = styled.View`
@@ -32,6 +31,7 @@ const Column = styled.View`
 const Overview = styled.Text`
     color:${GREY_COLOR};
     font-size : 12px;
+    margin-vertical: 10px;
 `;
 
 const MovieItem = ({
@@ -45,22 +45,21 @@ const MovieItem = ({
     navigation
 }) => (
     <TouchableWithoutFeedback
-        onPress={() =>
-            navigation.navigate({
-                routeName: "Detail",
-                params: {
-                  isMovie,
-                  id,
-                  posterPhoto,
-                  backgroundPhoto: null,
-                  title,
-                  voteAvg,
-                  overview
-                }
-              })        
-        }
+      onPress={() =>
+        navigation.navigate({
+          routeName: "Detail",
+          params: {
+            isMovie,
+            id,
+            posterPhoto,
+            backgroundPhoto: null,
+            title,
+            voteAvg,
+            overview
+          }
+        })        
+      }
     >
-
     {horizontal ? (
       <HContainer>
         <MoviePoster path={posterPhoto} />
@@ -82,21 +81,18 @@ const MovieItem = ({
         <Title>
           {title.length > 15 ? `${title.substring(0, 12)}...` : title}
         </Title>
-            <MovieRating votes={voteAvg} />
-        </Container>
+        <MovieRating votes={voteAvg} />
+      </Container>
     )}
-
   </TouchableWithoutFeedback>
 );
 
 MovieItem.propTypes = {
     id: PropTypes.number.isRequired,
     posterPhoto: PropTypes.string.isRequired,
-    backgroungPhoto: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     voteAvg: PropTypes.number.isRequired,
     overview: PropTypes.string.isRequired,
-    overview: PropTypes.string,
     isMovie: PropTypes.bool
 };
 
