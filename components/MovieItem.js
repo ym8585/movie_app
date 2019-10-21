@@ -29,7 +29,7 @@ const Column = styled.View`
     width: 60%;
 `;
 
-const OverView = styled.Text`
+const Overview = styled.Text`
     color:${GREY_COLOR};
     font-size : 12px;
 `;
@@ -89,7 +89,7 @@ const MovieItem = ({
   </TouchableWithoutFeedback>
 );
 
-MovieItem.PropTypes = {
+MovieItem.propTypes = {
     id: PropTypes.number.isRequired,
     posterPhoto: PropTypes.string.isRequired,
     backgroungPhoto: PropTypes.string.isRequired,
