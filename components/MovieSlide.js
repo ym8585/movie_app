@@ -13,7 +13,7 @@ const Container = styled.View`
     position: relative;
 `;
 
-const BGImage = styled.Image`
+const BgImage = styled.Image`
     width:${Layout.width};
     height: ${Layout.height / 3};
     opacity: 0.5;
@@ -61,19 +61,19 @@ const BtnText = styled.Text`
 `;
 
 const MovieSlide = ({
-    posterPhoto,
-    backgroundPhoto,
-    title,
-    voteAvg,
-    overview,
-    id,
-    navigation
+  id,
+  posterPhoto,
+  backgroundPhoto,
+  title,
+  voteAvg,
+  overview,
+  navigation
 }) => (
-    <Container>
-        <BGImage source={{uri: makePhotoUrl(backgroundPhoto) }} /> 
-     <Content>
-        <MoviePoster path={posterPhoto} />
-        <Column>
+  <Container>
+    <BgImage source={{ uri: makePhotoUrl(backgroundPhoto) }} />
+    <Content>
+      <MoviePoster path={posterPhoto} />
+      <Column>
         <Title>{title}</Title>
         {voteAvg ? (
           <VoteContainer>
@@ -91,7 +91,6 @@ const MovieSlide = ({
           onPress={() =>
             navigation.navigate({
               routeName: "Detail",
-             
               params: {
                 isMovie: true,
                 id,
@@ -101,13 +100,14 @@ const MovieSlide = ({
                 voteAvg,
                 overview
               }
+            })
           }
         >
           <BtnText>View details</BtnText>
         </BtnContainer>
       </Column>
-     </Content>
-    </Container>
+    </Content>
+  </Container>
 );
 
 MovieSlide.PropTypes = {

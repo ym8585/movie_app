@@ -11,8 +11,6 @@ const Container = styled.ScrollView`
     background-color: ${BG_COLOR};
 `;
 
-
-
 const MoviesPresenter = ({loading, upcoming, popular, nowPlaying}) => 
     loading ? (
     <Loader />
@@ -32,7 +30,7 @@ const MoviesPresenter = ({loading, upcoming, popular, nowPlaying}) =>
                         voteAvg={movie.vote_average}
                     />
                 ))}
-                </Section>
+            </Section>
             ) : null}
             {popular ? (
             <Section horizontal = {false} title="Popular Movies">

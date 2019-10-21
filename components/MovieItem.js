@@ -60,6 +60,7 @@ const MovieItem = ({
               })
         }
     >
+
     {horizontal ? (
       <HContainer>
         <MoviePoster path={posterPhoto} />
@@ -84,6 +85,7 @@ const MovieItem = ({
             <MovieRating votes={voteAvg} />
         </Container>
     )}
+
   </TouchableWithoutFeedback>
 );
 
