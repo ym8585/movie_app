@@ -60,7 +60,8 @@ const MovieItem = ({
         })        
       }
     >
-    {horizontal ? (
+
+   {horizontal ? (
       <HContainer>
         <MoviePoster path={posterPhoto} />
         <Column>
@@ -85,14 +86,14 @@ const MovieItem = ({
       </Container>
     )}
   </TouchableWithoutFeedback>
-);
+); 
 
 MovieItem.propTypes = {
     id: PropTypes.number.isRequired,
     posterPhoto: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     voteAvg: PropTypes.number.isRequired,
-    overview: PropTypes.string.isRequired,
+    overview: PropTypes.string,
     isMovie: PropTypes.bool
 };
 

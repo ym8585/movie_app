@@ -38,7 +38,7 @@ const MoviesPresenter = ({loading, upcoming, popular, nowPlaying}) =>
                 .filter(movie => movie.poster_path !== null)
                 .map(movie => (
                     <MovieItem
-                        horizental={true}
+                        horizontal={true}
                         key={movie.id}
                         id={movie.id}
                         posterPhoto={movie.poster_path}
