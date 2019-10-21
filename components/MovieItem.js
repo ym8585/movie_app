@@ -45,10 +45,21 @@ const MovieItem = ({
     navigation
 }) => (
     <TouchableWithoutFeedback
-    onPress={() =>
-      navigation.navigate({ routeName: "Detail", params: { isMovie, id } })
-    }
-  >
+        onPress={() =>
+            navigation.navigate({
+                routeName: "Detail",
+                params: {
+                  isMovie,
+                  id,
+                  posterPhoto,
+                  backgroundPhoto: null,
+                  title,
+                  voteAvg,
+                  overview
+                }
+              })
+        }
+    >
     {horizontal ? (
       <HContainer>
         <MoviePoster path={posterPhoto} />
